@@ -42,14 +42,38 @@ function MovingEyes() {
 
         window.addEventListener('mousemove', handleMouseMove);
 
+        const blinkInterval = setInterval(() => {
+            if (!svgRef.current) return;
+
+            const randomEyeId = Math.floor(Math.random() * 46) + 1;
+            const eye = svgRef.current.querySelector(`#eye${randomEyeId}`);
+
+            if (eye) {
+                const tagName = eye.tagName.toLowerCase();
+
+                if (tagName === 'circle') {
+                    const originalR = eye.getAttribute('r') || '10';
+                    (eye as SVGElement).setAttribute('r', (parseFloat(originalR) * 0.1).toString());
+
+                    setTimeout(() => {
+                        (eye as SVGElement).setAttribute('r', originalR);
+                    }, 150);
+
+                } else if (tagName === 'path') {
+                    (eye as SVGElement).style.opacity = '0.2';
+
+                    setTimeout(() => {
+                        (eye as SVGElement).style.opacity = '1';
+                    }, 200);
+                }
+            }
+        }, Math.floor(5000));
+
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
-
+            clearInterval(blinkInterval);
         };
-
     }, []);
-
-
 
     return (
                 <svg xmlns="http://www.w3.org/2000/svg"
@@ -60,6 +84,11 @@ function MovingEyes() {
                      viewBox="0 0 508 285.75"
                      preserveAspectRatio="none"
                      ref={svgRef}>
+                    <style jsx>{`
+                        #svg5 path {
+                        transition: transform 0.1s ease-out;
+                        }
+            `       }</style>
                     <g className="layer1">
                         <g className="eye-shape">
                             <path id="eye1"
