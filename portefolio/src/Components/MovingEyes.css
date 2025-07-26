@@ -1,0 +1,28 @@
+svg {
+    max-width: 100%;
+    max-height: 100%;
+    padding: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000
+}
+
+.eye-shape {
+    fill:#fff;
+    fill-rule:evenodd;
+    stroke-width:0.18
+}
+
+.pupils{
+    fill:#000000;
+    fill-opacity:0;
+    stroke:#000000;
+    stroke-width:0.25;
+    stroke-dasharray:none;
+    stroke-opacity:1
+}
+
+.eyelids{
+    fill:#242414;
+}
