@@ -60,7 +60,7 @@ function MovingEyes() {
                     }, 150);
 
                 } else if (tagName === 'path') {
-                    (eye as SVGElement).style.opacity = '0.2';
+                    (eye as SVGElement).style.opacity = '0.05';
 
                     setTimeout(() => {
                         (eye as SVGElement).style.opacity = '1';
