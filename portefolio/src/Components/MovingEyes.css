@@ -9,20 +9,14 @@ svg {
 }
 
 .eye-shape {
-    fill:#fff;
-    fill-rule:evenodd;
     stroke-width:0.18
 }
 
 .pupils{
-    fill:#000000;
+    fill:#fff;
     fill-opacity:0;
     stroke:#000000;
     stroke-width:0.25;
     stroke-dasharray:none;
     stroke-opacity:1
-}
-
-.eyelids{
-    fill:#242414;
 }

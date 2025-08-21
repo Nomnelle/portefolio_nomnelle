@@ -1,5 +1,6 @@
-export type AnimationProps = {
-    transformY: number;
-    opacity: number;
-    config?: { duration?: number; tension?: number; friction?: number; };
-};
+export type ScribbleTransitionProps = {
+    active: boolean;
+    duration?: number;
+    size?: number;
+    onEnd?: () => void;
+}
